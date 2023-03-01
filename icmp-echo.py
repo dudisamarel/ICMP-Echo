@@ -60,9 +60,9 @@ class IcmpService:
 def main(args):
     dest = args.destination
     payload = args.payload
+    icmp_service = IcmpService(dest)
     n = 10
     for i in range(0, len(payload), n):
-        icmp_service = IcmpService(dest)
         icmp_service.send_packet(payload[i:i+n])
         sleep(5)
     while True:
